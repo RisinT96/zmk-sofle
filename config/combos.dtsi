@@ -1,0 +1,35 @@
+/*
+  ╭─────────────────────────────╮ ╭─────────────────────────────╮
+  │ LN5 LN4 LN3 LN2 LN1 LN0     │ │     RN0 RN1 RN2 RN3 RN4 RN5 │
+  │ LT5 LT4 LT3 LT2 LT1 LT0     │ │     RT0 RT1 RT2 RT3 RT4 RT5 │
+  │ LM5 LM4 LM3 LM2 LM1 LM0     │ │     RM0 RM1 RM2 RM3 RM4 RM5 │
+  │ LB5 LB4 LB3 LB2 LB1 LB0 LEC │ │ REC RB0 RB1 RB2 RB3 RB4 RB5 │
+  ╰───────╮ LH4 LH3 LH2 LH1 LH0 │ │ RH0 RH1 RH2 RH3 RH4 ╭───────╯
+          ╰─────────────────────╯ ╰─────────────────────╯
+*/
+
+// Hack: Make HRM combos tap-only (cf, https://github.com/zmkfirmware/zmk/issues/544).
+#define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)      \
+    MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                            \
+    ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
+
+#define COMBO_TERM_FAST 18
+#define COMBO_TERM_SLOW 30
+
+#define COMBO_IDLE_FAST 150
+#define COMBO_IDLE_SLOW 50
+
+/* ================================ Horizontal Combos - Left Hand =============================== */
+
+// Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
+// chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
+// 8-argument version of ZMK_COMBO defined earlier.
+ZMK_COMBO(esc,   &kp ESC,           LT3 LT2,    LAYER_BASE LAYER_NAV LAYER_NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST);
+ZMK_COMBO(tab,   &hml LS(LALT)TAB,  LM3 LM2,    LAYER_BASE LAYER_NAV LAYER_NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST);
+ZMK_COMBO(ldr,   &leader,           LM2 LM1,    LAYER_BASE LAYER_NAV LAYER_NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, LS(LCTRL), KEYS_R);
+
+/* =============================== Horizontal Combos - Right Hand =============================== */
+
+/* ================================= Vertical Combos - Left Hand ================================ */
+
+/* ================================ Vertical Combos - Right Hand ================================ */
