@@ -9,10 +9,10 @@ include:
     artifact-name: eyelash_sofle_right
     shield: nice_view
 
-# Settings Reset
-  - board: eyelash_sofle_left
-    artifact-name: eyelash_sofle_left_settings_reset
-    shield: settings_reset
-  - board: eyelash_sofle_right
-    artifact-name: eyelash_sofle_right_settings_reset
-    shield: settings_reset
+# # Settings Reset
+#   - board: eyelash_sofle_left
+#     artifact-name: eyelash_sofle_left_settings_reset
+#     shield: settings_reset
+#   - board: eyelash_sofle_right
+#     artifact-name: eyelash_sofle_right_settings_reset
+#     shield: settings_reset

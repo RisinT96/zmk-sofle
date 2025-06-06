@@ -16,28 +16,80 @@
                                │      ╰────╯                                                │      ╰─────╯
 */
 
-// Hack: Make HRM combos tap-only (cf, https://github.com/zmkfirmware/zmk/issues/544).
-#define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)      \
-    MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                            \
-    ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
+#pragma once
 
-#define COMBO_TERM_FAST 18
-#define COMBO_TERM_SLOW 30
+#define LN0  5  // left-number row
+#define LN1  4
+#define LN2  3
+#define LN3  2
+#define LN4  1
+#define LN5  0
 
-#define COMBO_IDLE_FAST 150
-#define COMBO_IDLE_SLOW 50
+#define RN0  7  // right-number row
+#define RN1  8
+#define RN2  9
+#define RN3 10
+#define RN4 11
+#define RN5 12
 
-/* ================================ Horizontal Combos - Left Hand =============================== */
+#define LT0 18  // left-top row
+#define LT1 17
+#define LT2 16
+#define LT3 15
+#define LT4 14
+#define LT5 13
 
-// Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
-// chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
-// 8-argument version of ZMK_COMBO defined earlier.
-ZMK_COMBO(esc,   &kp ESC,           LT3 LT2,    LAYER_BASE LAYER_NAV LAYER_NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(tab,   &hml LS(LALT)TAB,  LM3 LM2,    LAYER_BASE LAYER_NAV LAYER_NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(ldr,   &leader,           LM2 LM1,    LAYER_BASE LAYER_NAV LAYER_NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, LS(LCTRL), KEYS_R)
+#define RT0 20  // right-top row
+#define RT1 21
+#define RT2 22
+#define RT3 23
+#define RT4 24
+#define RT5 25
 
-/* =============================== Horizontal Combos - Right Hand =============================== */
+#define LM0 31  // left-middle row
+#define LM1 30
+#define LM2 29
+#define LM3 28
+#define LM4 27
+#define LM5 26
 
-/* ================================= Vertical Combos - Left Hand ================================ */
+#define RM0 33  // right-middle row
+#define RM1 34
+#define RM2 35
+#define RM3 36
+#define RM4 37
+#define RM5 38
 
-/* ================================ Vertical Combos - Right Hand ================================ */
+#define LB0 44  // left-bottom row
+#define LB1 43
+#define LB2 42
+#define LB3 41
+#define LB4 40
+#define LB5 39
+
+#define RB0 46  // right-bottom row
+#define RB1 47
+#define RB2 48
+#define RB3 49
+#define RB4 50
+#define RB5 51
+
+#define LEC 52
+
+#define LH0 57  // left thumb keys
+#define LH1 56
+#define LH2 55
+#define LH3 54
+#define LH4 53
+
+#define RH0 59  // right thumb keys
+#define RH1 60
+#define RH2 61
+#define RH3 62
+#define RH4 63
+
+#define JS0 6
+#define JS1 32
+#define JS2 58
+#define JS3 45
+#define JS4 19
