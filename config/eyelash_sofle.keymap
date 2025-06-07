@@ -43,6 +43,16 @@
   quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+/ {
+    behaviors {
+        scroll_encoder: scroll_encoder  {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        };
+    };
+};
+
 /* ======================================== Home Row Mods ======================================= */
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // Left-hand keys.
@@ -118,6 +128,7 @@ SIMPLE_MORPH(rpar_morph,       SFT, &kp RPAR, &rpar_morph_inner)
 SIMPLE_MORPH(rpar_morph_inner, CTL, &kp RBKT, &kp RBRC)
 
 /* ======================================== Magic Shift ========================================= */
+
 // Tap: repeat after alpha, else sticky-shift |
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
@@ -190,7 +201,7 @@ ZMK_SOFLE_LAYER(
 
 ZMK_SOFLE_LAYER(
     Nav,
-    &inc_dec_kp C_VOLUME_UP C_VOL_DN,
+    &scroll_encoder,
 //  ╭─────┬─────────────┬─────────────┬──────────────┬──────────────┬─────────────────────╮                    |                 ╭──────────────┬──────────────┬──────────────┬─────────────┬─────────────────┬─────────╮
       ___   ___           ___           ___            ___            ___                                      ,                   ___            ___            ___            ___           ___               ___     ,
 //  ├─────┼─────────────┼─────────────┼──────────────┼──────────────┼─────────────────────┤                    |                 ├──────────────┼──────────────┼──────────────┼─────────────┼─────────────────┼─────────┤
