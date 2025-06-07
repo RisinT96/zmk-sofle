@@ -32,8 +32,9 @@
 // 8-argument version of ZMK_COMBO defined earlier.
 
 /* ================================ Horizontal Combos - Left Hand =============================== */
-ZMK_COMBO(esc, &hml LS(LALT)  ESC, LM3 LM2, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(tab, &hml LS(LCTRL) TAB, LM2 LM1, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(tab,   &hml LS(LCTRL) TAB, LM1 LM2, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(esc,   &hml LS(LALT)  ESC, LM2 LM3, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(grave, &kp GRAVE,          LM3 LM4, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 /* =============================== Horizontal Combos - Right Hand =============================== */
 ZMK_COMBO(plus,  &kp PLUS,  RN3 RN4, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
