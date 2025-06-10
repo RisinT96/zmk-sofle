@@ -21,8 +21,8 @@
     MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                            \
     ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
-#define COMBO_TERM_FAST 20
-#define COMBO_TERM_SLOW 30
+#define COMBO_TERM_FAST 25
+#define COMBO_TERM_SLOW 40
 
 #define COMBO_IDLE_FAST 150
 #define COMBO_IDLE_SLOW 50
@@ -32,9 +32,10 @@
 // 8-argument version of ZMK_COMBO defined earlier.
 
 /* ================================ Horizontal Combos - Left Hand =============================== */
+ZMK_COMBO(grave, &kp GRAVE,          LT1 LT2, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
 ZMK_COMBO(tab,   &hml LS(LCTRL) TAB, LM1 LM2, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(esc,   &hml LS(LALT)  ESC, LM2 LM3, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(grave, &kp GRAVE,          LM3 LM4, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 /* =============================== Horizontal Combos - Right Hand =============================== */
 ZMK_COMBO(bslh, &kp BSLH, RT1 RT2, LAYER_BASE LAYER_NAV, COMBO_TERM_FAST, COMBO_IDLE_FAST)
