@@ -157,6 +157,18 @@ ZMK_MOD_MORPH(
   /delete-property/ ignore-modifiers;
 };
 
+/* =================================== Custom Rotary Encoders =================================== */
+
+/ {
+    behaviors {
+        rgb_hue_encoder: rgb_hue_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUD>, <&rgb_ug RGB_HUI>;
+        };
+    };
+};
+
 /* =========================================== Layers =========================================== */
 
 #define ZMK_SOFLE_LAYER(name, sensors, LN, RN, LT, RT, LM, RM, LB, RB, LH, RH, LEC, JS0, JS1, JS2, JS3, JS4) \
@@ -255,7 +267,7 @@ ZMK_SOFLE_LAYER(                                                                
                                                                                                                  /* | */
 ZMK_SOFLE_LAYER(                                                                                                 /* | */
     Sys,                                                                                                         /* | */
-    &inc_dec_kp C_VOLUME_UP C_VOL_DN,                                                                            /* | */
+    &rgb_hue_encoder,                                                                                            /* | */
 //  ╭─────┬──────────────┬──────────────┬──────────────┬──────────────┬─────────────────────╮                       |                        ╭──────────────┬──────────────┬──────────────┬─────────────┬─────────────────┬─────────╮
       XXX   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                                ,                          XXX            XXX            XXX            XXX           XXX               XXX     ,
 //  ├─────┼──────────────┼──────────────┼──────────────┼──────────────┼─────────────────────┤                       |                        ├──────────────┼──────────────┼──────────────┼─────────────┼─────────────────┼─────────┤
